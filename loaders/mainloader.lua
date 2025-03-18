@@ -1,7 +1,7 @@
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
-
+--
 local players = game:GetService('Players')
 local localPlayer = players.LocalPlayer
 if not localPlayer then
@@ -9,9 +9,10 @@ if not localPlayer then
     localPlayer = players.LocalPlayer
 end
 
-local executor = identifyexecutor and identifyexecutor() or 'Unknown'
-local request = request or http_request
-local loadstring = loadstring
+local placeid        =      game.PlaceId
+local executor       =      identifyexecutor and identifyexecutor() or 'Unknown'
+local request        =      request or http_request
+local loadstring     =      loadstring
 
 local protected = function(url)
     local success, response = pcall(request, {Url = url, Method = 'GET'})
@@ -25,25 +26,27 @@ local protected = function(url)
     return loader()
 end
 
-local placeid = game.PlaceId
-
 local gamelist = {
-    counterblox = {
-        name = 'Counter Blox',
-        url = 'https://raw.githubusercontent.com/tamerlan806/cbro/refs/heads/main/loader.lua',
-        support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'}
-    },
     tridentsurvival = {
         name = 'Trident Survival',
-        url = '',
+        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/tridentsurvival.lua',
         support = {'Wave', 'AWP', 'Synapse Z', 'Atlantis', 'Potassium'}
+    },
+    counterblox = {
+        name = 'Counter Blox',
+        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/counterblox.lua',
+        support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'}
+    },
+    projectdelta = {
+        name = 'Project Delta',
+        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/projectdelta.lua',
+        support = {'Wave', 'AWP', 'Synapse Z','Velocity', 'Atlantis', 'Potassium'}
     },
     universal = {
         name = 'Universal',
-        url = '', 
+        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/universal.lua', 
         support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium', 'Xeno', 'Solara', 'Luna', 'Argon'},
-      --universal = true
-    }
+    },
 }
 
 local function supportedexecutor(exec, supportList)
@@ -68,8 +71,10 @@ local function FetchPlaceID()
         return load('tridentsurvival')
     elseif placeid == 301549746 then
         return load('counterblox')
+    elseif placeid == 7336302630 then
+        return load('projectdelta')
     end
-    
+    --
     if gamelist.universal and gamelist.universal.url ~= '' then
         return load('universal')
     end
