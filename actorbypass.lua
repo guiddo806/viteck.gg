@@ -1,0 +1,1 @@
+setfflag("DebugRunParallelLuaOnMainThread", "True")
