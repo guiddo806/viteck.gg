@@ -1,7 +1,7 @@
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
---
+
 local players = game:GetService('Players')
 local localPlayer = players.LocalPlayer
 if not localPlayer then
@@ -30,22 +30,27 @@ local gamelist = {
     tridentsurvival = {
         name = 'Trident Survival',
         url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/tridentsurvival.lua',
-        support = {'Wave', 'AWP', 'Synapse Z', 'Atlantis', 'Potassium'}
+        support = {'Wave', 'AWP', 'Synapse Z'}
     },
-    counterblox = {
-        name = 'Counter Blox',
-        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/counterblox.lua',
-        support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'}
+    phantomforces = {
+        name = 'Phantom Forces',
+        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/phantomforces.lua',
+        support = {'Wave', 'AWP', 'Synapse Z', 'Atlantis', 'Potassium'}
     },
     projectdelta = {
         name = 'Project Delta',
         url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/projectdelta.lua',
         support = {'Wave', 'AWP', 'Synapse Z','Velocity', 'Atlantis', 'Potassium'}
     },
+    counterblox = {
+        name = 'Counter Blox',
+        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/counterblox.lua',
+        support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'}
+    },
     universal = {
         name = 'Universal',
         url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/universal.lua', 
-        support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium', 'Xeno', 'Solara', 'Luna', 'Argon'},
+        support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'},
     },
 }
 
@@ -66,7 +71,7 @@ local load = function(name)
     protected(game.url)
 end
 
-local function FetchPlaceID()
+local function fetchplaceid()
     if placeid == 13253735473 then
         return load('tridentsurvival')
     elseif placeid == 301549746 then
@@ -74,10 +79,10 @@ local function FetchPlaceID()
     elseif placeid == 7336302630 then
         return load('projectdelta')
     end
-    --
+
     if gamelist.universal and gamelist.universal.url ~= '' then
         return load('universal')
     end
 end
 
-FetchPlaceID()
+fetchplaceid()
