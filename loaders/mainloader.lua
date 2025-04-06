@@ -30,7 +30,7 @@ local gamelist = {
     tridentsurvival = {
         name = 'Trident Survival',
         url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/tridentsurvival.lua',
-        support = {'Wave', 'AWP', 'Synapse Z'}
+        support = {'Wave', 'AWP', 'Synapse Z', 'Potassium'}
     },
     phantomforces = {
         name = 'Phantom Forces',
@@ -74,10 +74,12 @@ end
 local function fetchplaceid()
     if placeid == 13253735473 then
         return load('tridentsurvival')
-    elseif placeid == 301549746 then
-        return load('counterblox')
+    elseif placeid == 292439477 then
+        return load('phantomforces')
     elseif placeid == 7336302630 then
         return load('projectdelta')
+    elseif placeid == 301549746 then
+        return load('counterblox')
     end
 
     if gamelist.universal and gamelist.universal.url ~= '' then
