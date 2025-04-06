@@ -2,17 +2,17 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-local players = game:GetService('Players')
-local localPlayer = players.LocalPlayer
+local players        = game:GetService('Players')
+local localPlayer    = players.LocalPlayer
+local placeid        = game.PlaceId
+local executor       = identifyexecutor and identifyexecutor() or 'unknown'
+local request        = request or http_request
+local loadstring     = loadstring
+
 if not localPlayer then
     players:GetPropertyChangedSignal('LocalPlayer'):Wait()
     localPlayer = players.LocalPlayer
 end
-
-local placeid        =      game.PlaceId
-local executor       =      identifyexecutor and identifyexecutor() or 'Unknown'
-local request        =      request or http_request
-local loadstring     =      loadstring
 
 local protected = function(url)
     local success, response = pcall(request, {Url = url, Method = 'GET'})
@@ -28,34 +28,34 @@ end
 
 local gamelist = {
     tridentsurvival = {
-        name = 'Trident Survival',
-        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/tridentsurvival.lua',
+        name    = 'Trident Survival',
+        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/tridentsurvival.lua',
         support = {'Wave', 'AWP', 'Synapse Z', 'Potassium'}
     },
     phantomforces = {
-        name = 'Phantom Forces',
-        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/phantomforces.lua',
+        name    = 'Phantom Forces',
+        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/phantomforces.lua',
         support = {'Wave', 'AWP', 'Synapse Z', 'Atlantis', 'Potassium'}
     },
     projectdelta = {
-        name = 'Project Delta',
-        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/projectdelta.lua',
+        name    = 'Project Delta',
+        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/projectdelta.lua',
         support = {'Wave', 'AWP', 'Synapse Z','Velocity', 'Atlantis', 'Potassium'}
     },
     counterblox = {
-        name = 'Counter Blox',
-        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/counterblox.lua',
+        name    = 'Counter Blox',
+        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/counterblox.lua',
         support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'}
     },
     universal = {
-        name = 'Universal',
-        url = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/universal.lua', 
+        name    = 'Universal',
+        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/universal.lua', 
         support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'},
     },
 }
 
-local function supportedexecutor(exec, supportList)
-    for _, supported in ipairs(supportList) do
+local function supportedexecutor(exec, supportlist)
+    for _, supported in ipairs(supportlist) do
         if exec == supported then
             return true
         end
