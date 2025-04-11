@@ -28,29 +28,34 @@ end
 
 local gamelist = {
     tridentsurvival = {
-        name    = 'Trident Survival',
-        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/tridentsurvival.lua',
-        support = {'Wave', 'AWP', 'Synapse Z', 'Potassium'}
+        name          = 'Trident Survival',
+        url           = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/tridentsurvival.lua',
+        support       = {'Wave', 'AWP', 'Synapse Z', 'Swift', 'Potassium'}
     },
     phantomforces = {
-        name    = 'Phantom Forces',
-        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/phantomforces.lua',
-        support = {'Wave', 'AWP', 'Synapse Z', 'Atlantis', 'Potassium'}
+        name          = 'Phantom Forces',
+        url           = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/phantomforces.lua',
+        support       = {'Wave', 'AWP', 'Synapse Z', 'Swift', 'Atlantis', 'Potassium'}
     },
     projectdelta = {
-        name    = 'Project Delta',
-        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/projectdelta.lua',
-        support = {'Wave', 'AWP', 'Synapse Z','Velocity', 'Atlantis', 'Potassium'}
+        name          = 'Project Delta',
+        url           = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/projectdelta.lua',
+        support       = {'Wave', 'AWP', 'Synapse Z', 'Swift', 'Velocity', 'Atlantis', 'Potassium'}
     },
     counterblox = {
-        name    = 'Counter Blox',
-        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/counterblox.lua',
-        support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'}
+        name          = 'Counter Blox',
+        url           = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/counterblox.lua',
+        support       = {'Wave', 'AWP', 'Synapse Z', 'Swift', 'Velocity', 'Atlantis', 'Potassium'}
+    },
+    rostalpha = {
+        name          = 'Rost Alpha',
+        url           = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/rostalpha.lua',
+        support       = {'Wave', 'AWP', 'Synapse Z', 'Swift', 'Velocity', 'Atlantis', 'Potassium'}
     },
     universal = {
-        name    = 'Universal',
-        url     = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/universal.lua', 
-        support = {'Wave', 'AWP', 'Synapse Z', 'Velocity', 'Atlantis', 'Potassium'},
+        name          = 'Universal',
+        url           = 'https://raw.githubusercontent.com/guiddo806/viteck.gg/refs/heads/main/main/universal.lua', 
+        support       = {'Wave', 'AWP', 'Synapse Z', 'Swift', 'Velocity', 'Atlantis', 'Potassium'},
     },
 }
 
@@ -80,6 +85,8 @@ local function fetchplaceid()
         return load('projectdelta')
     elseif placeid == 301549746 then
         return load('counterblox')
+    elseif placeid == 13769775130 then
+        return load('rostalpha')
     end
 
     if gamelist.universal and gamelist.universal.url ~= '' then
